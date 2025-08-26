@@ -1,0 +1,65 @@
+### Gradle ###
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+.gradle/
+.gradle-cache/
+
+### IDE 설정 파일 ###
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+.factorypath
+.springBeans
+.apt_generated
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VSCode
+.vscode/
+
+### OS 별 불필요 파일 ###
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+### 로그 & 임시 파일 ###
+*.log
+*.tmp
+*.swp
+
+### 환경 설정 파일 ###
+# 로컬 환경 설정은 공유하지 않음
+application-local.yml
+application-local.properties
+
+### 테스트 관련 ###
+/test-output/
+/reports/
+
+### JitPack / 배포 ###
+# 배포 시 생성되는 산출물은 무조건 제외
+libs/
