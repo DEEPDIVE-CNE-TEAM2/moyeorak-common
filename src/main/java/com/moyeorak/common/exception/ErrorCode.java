@@ -50,7 +50,12 @@ public enum ErrorCode {
     EXPIRED_JWT(HttpStatus.UNAUTHORIZED, "AccessToken이 만료되었습니다."),
     INVALID_JWT(HttpStatus.UNAUTHORIZED, "유효하지 않은 JWT 토큰입니다."),
     JWT_AUTH_FAIL(HttpStatus.UNAUTHORIZED, "JWT 인증에 실패했습니다."),
-    INVALID_REFRESH_TOKEN(HttpStatus.UNAUTHORIZED, "리프레시 토큰이 유효하지 않습니다.");
+    INVALID_REFRESH_TOKEN(HttpStatus.UNAUTHORIZED, "리프레시 토큰이 유효하지 않습니다."),
+
+    UNSUPPORTED_JWT(HttpStatus.UNAUTHORIZED, "지원하지 않는 JWT 서명 방식입니다."),
+    MALFORMED_JWT(HttpStatus.UNAUTHORIZED, "JWT 토큰 형식이 올바르지 않습니다."),
+    MISSING_ACCESS_TOKEN(HttpStatus.UNAUTHORIZED, "AccessToken이 필요합니다."),
+    MISSING_REFRESH_TOKEN(HttpStatus.UNAUTHORIZED, "RefreshToken이 필요합니다.");
 
     private final HttpStatus status;
     private final String message;
