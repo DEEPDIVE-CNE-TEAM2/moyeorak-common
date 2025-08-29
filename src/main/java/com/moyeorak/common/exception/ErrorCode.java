@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 @Getter
 @AllArgsConstructor
 public enum ErrorCode {
+    INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "예기치 못한 서버 에러가 발생했습니다."),
     // USER 관련
     NULL_EMAIL(HttpStatus.BAD_REQUEST, "이메일은 null일 수 없습니다."),
     INVALID_GENDER(HttpStatus.BAD_REQUEST, "성별은 '남' 또는 '여'여야 합니다."),
@@ -41,10 +42,14 @@ public enum ErrorCode {
     NOT_FOUND_MAIN_IMAGE_ID(HttpStatus.NOT_FOUND, "해당 ID의 홍보물이 존재하지 않습니다."),
 
     // ENROLLMENT
-    NOT_FOUND_ENROLLMENT(HttpStatus.NOT_FOUND, "해당 수강신청이 존재하지 않습니다."),
     ENROLLMENT_ALREADY_CANCELLED(HttpStatus.BAD_REQUEST, "이미 취소되었거나 수강중 상태가 아닙니다."),
     PROGRAM_CLOSED(HttpStatus.BAD_REQUEST, "종료된 프로그램은 취소할 수 없습니다."),
     NO_ADMIN_REGION(HttpStatus.INTERNAL_SERVER_ERROR, "관리자에게 지역 정보가 설정되어 있지 않습니다."),
+    ALREADY_ENROLLED(HttpStatus.BAD_REQUEST, "이미 신청한 프로그램입니다."),
+    NOT_FOUND_ENROLLMENT(HttpStatus.NOT_FOUND, "수강 신청 내역을 찾을 수 없습니다."),
+    UNAUTHORIZED_ENROLLMENT_CANCEL(HttpStatus.FORBIDDEN, "본인만 수강 신청을 취소할 수 있습니다."),
+    CANCEL_PERIOD_EXPIRED(HttpStatus.BAD_REQUEST, "취소 마감일이 지나 취소할 수 없습니다."),
+    ALREADY_CANCELLED(HttpStatus.BAD_REQUEST, "이미 취소된 수강 신청입니다."),
 
     // JWT
     EXPIRED_JWT(HttpStatus.UNAUTHORIZED, "AccessToken이 만료되었습니다."),
