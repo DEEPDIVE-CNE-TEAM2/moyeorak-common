@@ -37,6 +37,7 @@ public enum ErrorCode {
 
     //PROGRAM
     NOT_FOUND_PROGRAM(HttpStatus.NOT_FOUND, "해당 프로그램이 존재하지 않습니다."),
+    DUPLICATE_PROGRAM_TITLE_IN_REGION(HttpStatus.CONFLICT, "해당 지역에 이미 동일한 이름의 프로그램이 존재합니다."),
 
     //NOTICE
     NOT_FOUND_NOTICE(HttpStatus.NOT_FOUND, "공지사항이 존재하지 않습니다."),
