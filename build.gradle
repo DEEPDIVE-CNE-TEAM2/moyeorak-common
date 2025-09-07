@@ -7,7 +7,7 @@ plugins {
 
 group = 'com.github.DEEPdive-CNE-TEAM2'
 //group = "com.moyeorak" //로컬작업할때만
-version = '1.0.3'
+version = '1.0.4'
 
 java {
     toolchain {
