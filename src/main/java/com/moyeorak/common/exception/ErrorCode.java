@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum ErrorCode {
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "예기치 못한 서버 에러가 발생했습니다."),
+    INVALID_REQUEST(HttpStatus.BAD_REQUEST, "잘못된 요청입니다."),
     // USER 관련
     NULL_EMAIL(HttpStatus.BAD_REQUEST, "이메일은 null일 수 없습니다."),
     INVALID_GENDER(HttpStatus.BAD_REQUEST, "성별은 '남' 또는 '여'여야 합니다."),
@@ -20,16 +21,19 @@ public enum ErrorCode {
     INVALID_PASSWORD(HttpStatus.BAD_REQUEST, "비밀번호가 일치하지 않습니다."),
     EMAIL_DUPLICATED(HttpStatus.BAD_REQUEST, "이미 존재하는 이메일입니다."),
     PHONE_DUPLICATED(HttpStatus.BAD_REQUEST, "이미 존재하는 전화번호입니다."),
-
+    UNAUTHORIZED_ACCESS(HttpStatus.FORBIDDEN, "해당 작업을 수행할 권한이 없습니다."),
     SAME_PASSWORD(HttpStatus.BAD_REQUEST, "기존 비밀번호와 동일한 비밀번호는 사용할 수 없습니다."),
 
     // REGION
     NOT_FOUND_REGION(HttpStatus.NOT_FOUND, "해당 지역이 존재하지 않습니다."),
+    REGION_NAME_DUPLICATE(HttpStatus.CONFLICT, "이미 존재하는 지역명입니다."),
 
     //FACILITY
     FACILITY_REGION_MISMATCH(HttpStatus.BAD_REQUEST, "선택한 시설이 해당 지역에 속하지 않습니다."),
-    NOT_FOUND_FACILITY(HttpStatus.NOT_FOUND, "시설 정보가 없습니다."),
+    NOT_FOUND_FACILITY(HttpStatus.NOT_FOUND, "해당 시설이 존재하지 않습니다."),
     UNAUTHORIZED_FACILITY_ACCESS(HttpStatus.FORBIDDEN, "해당 시설에 접근할 권한이 없습니다."),
+    FACILITY_NAME_DUPLICATE(HttpStatus.CONFLICT, "이미 등록된 시설명입니다."),
+    INVALID_TIME_FORMAT(HttpStatus.BAD_REQUEST, "운영 시간 형식이 올바르지 않습니다. 예: 09:00"),
 
     //PROGRAM
     NOT_FOUND_PROGRAM(HttpStatus.NOT_FOUND, "해당 프로그램이 존재하지 않습니다."),
