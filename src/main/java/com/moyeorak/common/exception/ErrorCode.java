@@ -8,6 +8,18 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCode {
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "예기치 못한 서버 에러가 발생했습니다."),
     INVALID_REQUEST(HttpStatus.BAD_REQUEST, "잘못된 요청입니다."),
+    REQUIRED_FIELD_MISSING(HttpStatus.BAD_REQUEST, "필수 입력 항목이 누락되었습니다."),
+    INVALID_FIELD_FORMAT(HttpStatus.BAD_REQUEST, "입력 형식이 잘못되었습니다."),
+    UNSUPPORTED_OPERATION(HttpStatus.BAD_REQUEST, "지원하지 않는 요청입니다."),
+    OPERATION_NOT_ALLOWED(HttpStatus.BAD_REQUEST, "해당 작업은 허용되지 않습니다."),
+    TOO_MANY_REQUESTS(HttpStatus.TOO_MANY_REQUESTS, "요청이 너무 많습니다."),
+    TEMPORARILY_UNAVAILABLE(HttpStatus.SERVICE_UNAVAILABLE, "일시적으로 사용이 불가능합니다."),
+
+    // 파일 업로드
+    FILE_UPLOAD_FAILED(HttpStatus.INTERNAL_SERVER_ERROR, "파일 업로드에 실패했습니다."),
+    INVALID_FILE_TYPE(HttpStatus.BAD_REQUEST, "지원하지 않는 파일 형식입니다."),
+    FILE_TOO_LARGE(HttpStatus.BAD_REQUEST, "파일 크기가 너무 큽니다."),
+
     // USER 관련
     NULL_EMAIL(HttpStatus.BAD_REQUEST, "이메일은 null일 수 없습니다."),
     INVALID_GENDER(HttpStatus.BAD_REQUEST, "성별은 '남' 또는 '여'여야 합니다."),
@@ -24,6 +36,11 @@ public enum ErrorCode {
     UNAUTHORIZED_ACCESS(HttpStatus.FORBIDDEN, "해당 작업을 수행할 권한이 없습니다."),
     SAME_PASSWORD(HttpStatus.BAD_REQUEST, "기존 비밀번호와 동일한 비밀번호는 사용할 수 없습니다."),
 
+    // 인증
+    AUTHORIZATION_REQUIRED(HttpStatus.UNAUTHORIZED, "인증이 필요합니다."),
+    ACCESS_DENIED(HttpStatus.FORBIDDEN, "해당 리소스에 접근할 수 없습니다."),
+    INVALID_ROLE(HttpStatus.FORBIDDEN, "요청을 수행할 권한이 없습니다."),
+
     // REGION
     NOT_FOUND_REGION(HttpStatus.NOT_FOUND, "해당 지역이 존재하지 않습니다."),
     REGION_NAME_DUPLICATE(HttpStatus.CONFLICT, "이미 존재하는 지역명입니다."),
@@ -38,7 +55,7 @@ public enum ErrorCode {
     //PROGRAM
     NOT_FOUND_PROGRAM(HttpStatus.NOT_FOUND, "해당 프로그램이 존재하지 않습니다."),
     DUPLICATE_PROGRAM_TITLE_IN_REGION(HttpStatus.CONFLICT, "해당 지역에 이미 동일한 이름의 프로그램이 존재합니다."),
-
+    PROGRAM_FULL(HttpStatus.BAD_REQUEST, "정원이 가득 찼습니다."),
     //NOTICE
     NOT_FOUND_NOTICE(HttpStatus.NOT_FOUND, "공지사항이 존재하지 않습니다."),
 
